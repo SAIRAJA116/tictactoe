@@ -1,9 +1,10 @@
 import React from 'react'
 import "./Square.style.css"
-const square = (props) => {
+const Square = (props) => {
+  console.log("hello",props.value)
   return (
-    <button className='square'>{props.value}</button>
+    <button className='square' onClick={props.onClick} >{props.value}</button>
   )
 }
 
-export default square
+export default Square
