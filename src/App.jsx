@@ -1,8 +1,11 @@
 import React from "react";
-
+import Board from "./components/Board"
+import Square from "./components/Square"
 export default () => (
-  <>
-    <h1>Welcome to React Vite Micro App!</h1>
-    <p>Hard to get more minimal than this React app.</p>
-  </>
+  <div>
+    <h1>TIC TAC TOE hello</h1>
+    <Board/>
+
+  </div>
 );
+
