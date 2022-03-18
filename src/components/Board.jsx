@@ -1,13 +1,16 @@
 import React,{useState} from 'react'
 import Square from "./Square"
 
-const Board = ({board,handleSquareClick}) => {  //Here the borad and handleSquareClick are the props send from the App.jsx and here we used the object destructuring to get them here we can also use props word there and also calll it as props.board and props.handlequareClick but destruturing is much more easier if we are having less number of props
+const Board = ({board,handleSquareClick,winningSquares}) => {  //Here the borad and handleSquareClick are the props send from the App.jsx and here we used the object destructuring to get them here we can also use props word there and also calll it as props.board and props.handlequareClick but destruturing is much more easier if we are having less number of props
 
 
 
   const renderSquare = (position)=>{
+
+    const isWinningSquare = winningSquares.includes(position)
+
     return(
-    <Square value={board[position]} onClick={()=>handleSquareClick(position)} />
+    <Square value={board[position]} isWinningSquare={isWinningSquare} onClick={()=>handleSquareClick(position)} />
     )
   }
 
