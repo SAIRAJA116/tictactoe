@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import Board from "./components/Board";
 import History from "./components/History";
+import StatusMessage from "./components/StatusMessage";
 import {calculateWinner} from "./helpers"
 import "./styles/root.scss";
 export default () => {
@@ -11,7 +12,6 @@ export default () => {
 
 
   const winner = calculateWinner(current.board);
-  const message = winner ? `Winner is ${winner} `: `Next Player is ${current.isXnext ? 'X' : 'O' }`;
   
   
 
@@ -58,7 +58,7 @@ export default () => {
   return(
   <div className="app">
     <h1>TIC TAC TOE</h1>
-    <h2>{message}</h2>
+    <StatusMessage current = {current} winner = {winner}  />
     <Board board={current.board} handleSquareClick = {handleSquareClick} />
     <History  history={history} moveTo = {moveTo} currentMove={currentMove} />
 
