@@ -1,33 +1,9 @@
 import React,{useState} from 'react'
 import Square from "./Square"
 
-const Board = () => {
-
-  const [board,setBoard]=useState(Array(9).fill(null));
-  const [isXnext,setIsXnext] = useState(false);
+const Board = ({board,handleSquareClick}) => {  //Here the borad and handleSquareClick are the props send from the App.jsx and here we used the object destructuring to get them here we can also use props word there and also calll it as props.board and props.handlequareClick but destruturing is much more easier if we are having less number of props
 
 
-
-  const handleSquareClick = (position)=>{
-    setBoard((prev)=>{
-      return prev.map((square,pos)=>{
-        if(pos==position && prev[pos]==null){
-          if(isXnext){
-            return 'X'
-          }else{
-            return 'O'
-          }
-          
-        }
-        return square
-      })
-      
-    });
-
-    setIsXnext((prev)=>{
-      return !prev
-    }) 
-  };
 
   const renderSquare = (position)=>{
     return(
