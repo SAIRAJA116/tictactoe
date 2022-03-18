@@ -6,17 +6,17 @@ const StatusMessage = ({winner,current}) => {
 
     let message;
     if(winner){
-        message = `Winner is ${winner} `
+        message = <>Winner is <span className={winner==='X'?'text-green':'text-orange'}>{winner}</span> </>
     }else{
         if(noMovesLeft){
-            message = "X and O are tied"
+            message = <><span className='text-green'>X</span> and <span className='text-orange'>O</span> are tied</>
         }else{
-            message = `Next Player is ${current.isXnext ? 'X' : 'O' }`
+            message = <>Next Player is <span className={winner==='X'?'text-green':'text-orange'}>{current.isXnext ? 'X' : 'O' }</span></>
         }
     }
 
   return (
-    <h2>{message}</h2>
+    <div className='status-message'>{message}</div>
   )
 }
 
